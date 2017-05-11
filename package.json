@@ -10,6 +10,7 @@
     "test-debug": "DEBUG=cfgram* mocha",
     "start": "node server.js",
     "debug": "DEBUG=cfgram* nodemon server.js",
+    "lint": "eslint",
     "cover": "istanbul cover _mocha",
     "test": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },

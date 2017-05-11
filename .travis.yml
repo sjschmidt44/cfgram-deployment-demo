@@ -13,8 +13,11 @@ addons:
 env:
   - CXX=g++-5
 sudo: required
-after_success:
-  - npm run coveralls
+# safelist
+branches:
+  only:
+  - master
+  - test_branch
 before_script: npm i
 script:
   - npm run test
