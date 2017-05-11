@@ -8,6 +8,8 @@ const Promise = require('bluebird');
 const User = require('../models/user');
 const Gallery = require('../models/gallery');
 
+require('../server');
+
 const url = `http://localhost:${process.env.PORT}`;
 
 const exampleUser = {
