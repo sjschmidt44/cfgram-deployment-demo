@@ -27,5 +27,6 @@ app.use(require('./lib/error-middleware'))
 app.use('/api', require('./routes/auth-routes')(router))
 app.use('/api', require('./routes/gallery-routes')(router))
 app.use('/api', require('./routes/pic-routes')(router))
+app.use(require('./routes/base-routes')(router))
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`))
