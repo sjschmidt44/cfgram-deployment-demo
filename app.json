@@ -1,0 +1,13 @@
+{
+  "environments": {
+    "test": {
+      "env": {
+        "MONGODB_URI":"mongodb://localhost/cfgram-dev",
+        "PORT": "3000"
+      },
+      "addons": [
+        "mongolab"
+      ]
+    }
+  }
+}
