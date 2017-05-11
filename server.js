@@ -10,8 +10,8 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser').json()
 const debug = require('debug')('cfgram:server')
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/cfgram-dev'
-const PORT = process.env.PORT || 3000
+const MONGODB_URI = process.env.MONGODB_URI
+const PORT = process.env.PORT
 
 mongoose.Promise = Promise
 mongoose.connect(MONGODB_URI)
