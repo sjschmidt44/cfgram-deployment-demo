@@ -13,8 +13,8 @@ addons:
 env:
   - CXX=g++-5
 sudo: required
+after_success:
+  - npm run coveralls
 before_script: npm i
 script:
   - npm run test
-  after_success:
-    - npm run coveralls
