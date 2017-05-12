@@ -25,6 +25,14 @@ function s3uploadProm(params) {
   })
 }
 
+function s3DeleteProm(params) {
+  return new Promise((resolve, reject) => {
+    s3.deleteObject(params, (err, s3data) => {
+      resolve(s3data)
+    })
+  })
+}
+
 const picCtrl = module.exports = {}
 
 picCtrl.create = function(req) {
@@ -75,7 +83,13 @@ picCtrl.fetchAll = function() {
 picCtrl.delete = function(id) {
   debug('#delete')
 
+  let params = {
+    Bucket: 'STRING_VALUE',
+    Key: 'STRING_VALUE'
+  }
+
   return Pic.findByIdAndRemove(id)
+  .then(() => s3DeleteProm(params))
   .then(data => data)
   .catch(err => createError(404, err.message))
 }
