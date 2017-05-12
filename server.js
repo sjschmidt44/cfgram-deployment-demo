@@ -16,7 +16,7 @@ const PORT = process.env.PORT
 mongoose.Promise = Promise
 mongoose.connect(MONGODB_URI)
 
-const app = module.exports = express()
+const app = express()
 const router = express.Router()
 
 app.use(morgan('dev'))
@@ -29,4 +29,6 @@ app.use('/api', require('./routes/gallery-routes')(router))
 app.use('/api', require('./routes/pic-routes')(router))
 app.use(require('./routes/base-routes')(router))
 
-app.listen(PORT, () => console.log(`Listening on ${PORT}`))
+const server = module.exports = app.listen(PORT, () => debug(`Listening on ${PORT}`))
+
+server.isRunning = true
